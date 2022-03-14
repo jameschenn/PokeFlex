@@ -15,21 +15,21 @@ npx dotenv sequelize db:migrate:undo:all
 npx dotenv sequelize db:seed:all
 npx dotenv sequelize db:seed:undo:all
 
-npx sequelize model:generate --name Trainer --attributes username:varchar,password:string,emailAddress:varchar
+npx sequelize model:generate --name Trainer --attributes username:string,password:string,emailAddress:string
 
-npx sequelize model:generate --name Pokemon --attributes name:varchar,image:varchar,region:string,type:string
+npx sequelize model:generate --name Pokemon --attributes name:string,image:string,description:text,type:string
 
-npx sequelize model:generate -name Review --attributes review:text,rating:numeric,trainerId:integer,pokemonId:integer
+npx sequelize model:generate --name Review --attributes review:text,rating:numeric,trainerId:integer,pokemonId:integer
 
-npx sequelize model:generate -name Catchlist --attributes catchstatus:varchar,trainerId:integer
+npx sequelize model:generate --name Catchlist --attributes catchstatus:string,trainerId:integer
 
-npx sequelize model:generate -name CatchlistJoinPokemon --attributes pokemonId:integer,catchlistId:integer
+npx sequelize model:generate --name CatchlistJoinPokemon --attributes pokemonId:integer,catchlistId:integer
 
 npx sequelize seed:generate --name Trainers
-npx sequelize seed:generate --name Pokemon
+npx sequelize seed:generate --name Pokemons
 npx sequelize seed:generate --name Reviews
 npx sequelize seed:generate --name Catchlists
-npx sequelize seed:generate --name CatchlistJoinPokemon
+npx sequelize seed:generate --name CatchlistJoinPokemons
 
 example model set up
 
