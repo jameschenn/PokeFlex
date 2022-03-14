@@ -18,11 +18,13 @@ module.exports = {
       },
       trainerId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Trainers'}
       },
       pokemonId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Pokemons'}
       },
       createdAt: {
         allowNull: false,

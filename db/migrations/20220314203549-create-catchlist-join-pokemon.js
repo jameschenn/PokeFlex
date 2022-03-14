@@ -10,11 +10,13 @@ module.exports = {
       },
       pokemonId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Pokemons'}
       },
       catchlistId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Catchlists'}
       },
       createdAt: {
         allowNull: false,

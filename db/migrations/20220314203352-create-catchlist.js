@@ -14,7 +14,8 @@ module.exports = {
       },
       trainerId: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Trainers'}
       },
       createdAt: {
         allowNull: false,
