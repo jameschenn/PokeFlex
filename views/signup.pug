@@ -2,20 +2,17 @@ extends layout.pug
 block content
     if errors.length > 0
         each err in errors
-            p= err
-    form(class='form' action="/users/signup" method="post")
-        div
-            input(type="hidden" name="_csrf" value=csrfToken)
-            label(for="username") Username
-        div
-            input(type="text" name="username" value=user.username)
-            label(for="emailAddress") Email
-        div
-            input(type="text" name="emailAddress" value=user.emailAddress)
-            label(for="password") Password
-        div
-            input(type="password" name="password" value=user.password)
-            label(for="confirmPassword") Confirm Password
-        div
-            input(type="password" name="confirmPassword")
-            button(type="submit") Sign Up
+            p(class='errorMsg')= err
+    div(class='div-form')
+        form(class='form' action="/users/signup" method="post")
+            input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
+            label(class="div-form-item" for="username") Username
+            input(class="div-form-item" type="text" name="username"  placeholder='Username' value=user.username)
+            label(class="div-form-item" for="emailAddress") Email
+            input(class="div-form-item" type="email" name="emailAddress"  placeholder='Email' value=user.emailAddress)
+            label(class="div-form-item" for="password") Password
+            input(class="div-form-item" type="password" name="password"  placeholder='Password' value=user.password)
+            label(class="div-form-item" for="confirmPassword") Confirm Password
+            input(class="div-form-item" type="password" name="confirmPassword" placeholder='Confirm Password')
+            br
+            button(id="signUp" class="div-form-item" type="submit") Sign Up
