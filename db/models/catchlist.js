@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Catchlist.associate = function(models) {
     // associations can be defined here
-    Catchlist.belongsTo(model.Trainer, {foreignKey: 'pokemonId'});
+    Catchlist.belongsTo(models.Trainer, {foreignKey: 'pokemonId'});
 
     const columnMapping = {
     foreignKey: 'catchlistId',
