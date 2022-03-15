@@ -4,9 +4,16 @@ const db = require('../db/models')
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  const user = db.Trainer.build()
-  res.render('index', { title: 'Welcome To PokeFlex', user });
+router.get('/', async function(req, res, next) {
+  if(req.session.auth) {
+
+    const userId = req.session.auth.userId
+    const user = await db.Trainer.findByPk(userId);
+    const username = user.username
+    res.render('index', { title: 'Welcome To PokeFlex', username });
+  }
+  const username = '';
+  res.render('index', {title: 'Welcome to PokeFlex', username})
 });
 
 

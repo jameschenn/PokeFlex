@@ -68,9 +68,11 @@ router.post('/login', csrfProtection, trainerValidator, asyncHandler(async (req,
 
 router.get('/signup', csrfProtection,(req, res) => {
   const user = db.Trainer.build()
+  let errors = [];
   res.render('signup', {
     title: 'signup',
     user,
+    errors,
     csrfToken: req.csrfToken()
   })
 })
@@ -97,7 +99,14 @@ const signupValidator = [
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Confirm Password')
     .isLength({ max: 60 })
-    .withMessage('Confirm Password must not be more than 60 characters long'),
+    .withMessage('Confirm Password must not be more than 60 characters long')
+    .custom((value, { req }) => {
+      if (value !== req.body.password) {
+        throw new Error('Confirm Password does not match Password');
+      }
+      return true;
+    })
+
 ]
 
   router.post('/signup', csrfProtection, signupValidator, asyncHandler(async(req,res) => {
@@ -131,7 +140,9 @@ const signupValidator = [
 
 
   router.post('/demouser', asyncHandler(async(req, res) => {
-    const demo = await db.Trainer.findByPk(1);
+    const demo = await db.Trainer.findOne({
+      where: {username: "demouser"}
+    });
     userLogin(req, res, demo);
     res.redirect('/')
   }))

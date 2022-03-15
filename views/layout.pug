@@ -6,7 +6,8 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
     if locals.authenticated
-      div Welcome #{user.username}
+      div
+        h2 Welcome #{username}
       form(action="/users/logout" method='post')
         button(type='submit') Logout
     else

@@ -25,3 +25,10 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
