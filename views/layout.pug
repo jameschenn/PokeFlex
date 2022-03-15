@@ -9,10 +9,10 @@ html
       div
         h2 Welcome #{username}
       form(action="/users/logout" method='post')
-        button(type='submit') Logout
+        button(class="homeButton" id='logout' type='submit') Logout
     else
       form(action='/users/demouser' method='post')
-        button(type='submit') Demo User
-      a(href="/users/login") Login
-      a(href="/users/signup") Sign Up
+        button(class="homeButton" id="demo" type='submit') Demo User
+      a(class="aTag" href="/users/login") Login
+      a(class="aTag" href="/users/signup") Sign Up
     block content

@@ -74,3 +74,25 @@ button:hover {
   border-radius: 10px;
   border: none;
 }
+
+.aTag {
+  color: blue;
+  text-decoration-style: none;
+  padding: 10px;
+}
+
+.homeButton {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+#logout {
+  background-color: darkred;
+}
+
+#demo {
+  background-color: yellow;
+  color: black;
+}
