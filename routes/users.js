@@ -130,4 +130,10 @@ const signupValidator = [
   })
 
 
+  router.post('/demouser', asyncHandler(async(req, res) => {
+    const demo = await db.Trainer.findByPk(1);
+    userLogin(req, res, demo);
+    res.redirect('/')
+  }))
+
 module.exports = router;
