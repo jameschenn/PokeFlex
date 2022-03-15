@@ -2,11 +2,13 @@ extends layout.pug
 block content
   if errors.length > 0
     each err in errors
-      p= err
-  form(class='form' action="/users/login" method="post")
-    input(type="hidden" name="_csrf" value=csrfToken)
-    label(for="username") Username
-    input(type="text" name="username" required)
-    label(for="password") Password
-    input(type="password" name="password" required)
-    button(type="submit") Log In
+      p(class='errorMsg')= err
+  div(class='div-form')
+    form(class='form' action="/users/login" method="post")
+      input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
+      label(class="div-form-item" for="username") Username
+      input(class="div-form-item" type="text" name="username" placeholder="Username" required)
+      label(class="div-form-item" for="password") Password
+      input(class="div-form-item" type="password" name="password" placeholder="Password" required)
+      br
+      button(id="loginButton" class="div-form-item" type="submit") Log In

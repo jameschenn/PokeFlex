@@ -26,9 +26,51 @@ h1 {
   font-size: 2rem;
 }
 
-.form {
+.div-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(68, 170, 165);
+  margin: 20px 620px;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.div-form-item {
+  padding: 10px;
+}
+
+.div-form-item > button{
+  background-color: #20ad13;
+  margin-top: 10px;
+}
+.div-form > form {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginButton {
+  margin: 10px;
+  background-color: #20ad13;
+  border-radius: 10px;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.errorMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+#signUp {
+  margin: 10px;
+  background-color: #20ad13;
+  border-radius: 10px;
+  border: none;
 }
