@@ -5,6 +5,9 @@ const csrfProtection = csrf({ cookie: true });
 const db = require('../db/models')
 const bcrypt = require('bcryptjs')
 const { check, validationResult } = require('express-validator');
+const session = require('express-session');
+const {userLogin, userRestore, requireAuth, userLogout} = require('../auth')
+
 
 const asyncHandler = (handler) => {
   return (req, res, next) => {
@@ -37,7 +40,7 @@ router.post('/login', csrfProtection, trainerValidator, asyncHandler(async (req,
   let errors = [];
   validationErrors = validationResult(req);
   if (validationErrors.isEmpty()) {
-    const user = await Trainer.findOne({
+    const user = await db.Trainer.findOne({
       where: {
         username
       }
@@ -45,6 +48,7 @@ router.post('/login', csrfProtection, trainerValidator, asyncHandler(async (req,
     if (user !== null) {
       const passwordMatch = await bcrypt.compare(password, user.password.toString())
       if (passwordMatch) {
+        userLogin(req, res, user)
         return res.redirect('/')
       }
     }
@@ -62,7 +66,7 @@ router.post('/login', csrfProtection, trainerValidator, asyncHandler(async (req,
 
 }));
 
-router.get('/signup', csrfProtection, (req, res) => {
+router.get('/signup', csrfProtection,(req, res) => {
   const user = db.Trainer.build()
   res.render('signup', {
     title: 'signup',
@@ -106,6 +110,7 @@ const signupValidator = [
       const hashPassword = await bcrypt.hash(password, 10);
       user.password = hashPassword;
       await user.save();
+      userLogin(req, res, user)
       res.redirect('/');
     } else {
       errors = validationErrors.array().map((error) => error.msg);
@@ -117,5 +122,12 @@ const signupValidator = [
       })
     }
   }))
+
+
+  router.post('/logout',(req, res) =>{
+    userLogout(req, res)
+    res.redirect('/')
+  })
+
 
 module.exports = router;
