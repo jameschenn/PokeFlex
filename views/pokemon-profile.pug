@@ -8,3 +8,9 @@ block content
                     span(style="font-weight:bold; font-size:20px; text-transform:uppercase")= pokemon.name
                     p= pokemon.description
                     p= pokemon.type
+    if locals.authenticated
+        form(action='/users/:id(\\d+)/:list(\\d+)' method='post')
+            select(class='drop-down')
+                option(value="Want To Catch") Want To Catch
+                option(value="Trying To Catch") Trying To Catch
+                option(value="Have Caught") Have Caught

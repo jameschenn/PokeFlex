@@ -181,3 +181,18 @@ nav {
   text-align: center;
   margin-top: 25px;
 }
+
+.drop-down  {
+  display: inline-block;
+  position: relative;
+  background-color: #20ad13;
+  border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+
+option {
+  border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
