@@ -20,9 +20,13 @@ body, header, nav {
   padding: 0;
   outline: 0;
   font-weight: normal;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
 }
 
@@ -34,11 +38,13 @@ h1 {
   background-color: rgb(68, 170, 165);
   margin: 20px 620px;
   padding: 50px;
+  box-shadow: 10px 5px 4px rgb(148, 142, 142);
   border-radius: 10px;
 }
 
 .div-form-item {
   padding: 10px;
+
 }
 
 .div-form-item > button{
@@ -55,6 +61,9 @@ h1 {
   background-color: #20ad13;
   border-radius: 10px;
   border: none;
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 255, .2);
+  font-weight: bold;
+  color: white;
 }
 
 button:hover {
@@ -73,6 +82,9 @@ button:hover {
   background-color: #20ad13;
   border-radius: 10px;
   border: none;
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 255, .2);
+  font-weight: bold;
+  color: white;
 }
 
 .aTag {
@@ -86,13 +98,44 @@ button:hover {
   margin: 10px;
   border-radius: 10px;
   border: none;
+  font-weight: bold;
 }
 
 #logout {
   background-color: darkred;
+  font-weight: bold;
+  color: white;
 }
+
 
 #demo {
   background-color: yellow;
   color: black;
+}
+
+
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+input {
+  border: none;
+  border-radius: 7px;
+
 }
