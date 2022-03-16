@@ -145,27 +145,22 @@ input {
   text-transform: capitalize;
 }
 
+/* Nav Bar */
+nav {
+  background-color: red;
 
-/* .card {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  flex-wrap: no-wrap;
-  float: left;
+}
 
-  border-radius: 18px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
-  text-align: center;
-} */
-
-/* .card {
+.nav_links {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  float: left;
-} */
+  padding-left: 20px;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  list-style-type: none;
+}
+
+/* Pokemon Cards */
 
 .card {
   display: flex;

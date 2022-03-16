@@ -5,14 +5,20 @@ html
         title="Express Starter App"
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
-    if locals.authenticated
-      div
-        h2 Welcome #{username}
-      form(action="/users/logout" method='post')
-        button(class="homeButton grow" id='logout' type='submit') Logout
-    else
-      form(action='/users/demouser' method='post')
-        button(class="homeButton grow" id="demo" type='submit') Demo User
-      a(class="aTag" href="/users/login") Login
-      a(class="aTag" href="/users/signup") Sign Up
+    nav
+      h2 PokéFlex
+      ul(class="nav_links")
+        li: a(class="aTag" href="/") Home
+        li: a(class="aTag" href="/") My Pokémon
+        li: a(class="aTag" href="/pokemons") All Pokémon
+      if locals.authenticated
+        div
+          h2 Welcome #{username}
+        form(action="/users/logout" method='post')
+          button(class="homeButton grow" id='logout' type='submit') Logout
+      else
+        form(action='/users/demouser' method='post')
+          button(class="homeButton grow" id="demo" type='submit') Demo User
+        a(class="aTag" href="/users/login") Login
+        a(class="aTag" href="/users/signup") Sign Up
     block content
