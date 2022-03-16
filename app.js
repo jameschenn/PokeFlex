@@ -12,7 +12,7 @@ const csrf = require("csurf");
 const { sessionSecret } = require('./config');
 const {userLogin,userRestore,requireAuth, userLogout} = require('./auth')
 const pokemonRouter = require('./routes/pokemons')
-
+const catchlistRouter = require('./routes/catchlists')
 
 const app = express();
 
@@ -46,7 +46,7 @@ app.use(userRestore);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/pokemons', pokemonRouter)
-
+app.use('/catchlists', catchlistRouter)
 
 
 // catch 404 and forward to error handler
