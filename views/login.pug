@@ -3,6 +3,7 @@ block content
   if errors.length > 0
     each err in errors
       p(class='errorMsg')= err
+  h1(class='title') Log In
   div(class='div-form')
     form(class='form' action="/users/login" method="post")
       input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
@@ -11,4 +12,4 @@ block content
       label(class="div-form-item" for="password") Password
       input(class="div-form-item" type="password" name="password" placeholder="Password" required)
       br
-      button(id="loginButton" class="div-form-item" type="submit") Log In
+      button(id="loginButton" class="div-form-item grow" type="submit") Log In
