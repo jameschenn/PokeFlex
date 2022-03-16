@@ -3,7 +3,7 @@ block content
 
     h1= title
     each monster in pokemon
-        div(class="card-container")
+        a(class="card-container" href=`/pokemons/${monster.id}`)
             div(class="card grow")
                 img(src=monster.image)
                 div(class="card-text")
@@ -16,3 +16,5 @@ block content
     li: a(href="/pokemons?page=2") Page 2
     li: a(href="/pokemons?page=3") Page 3
     li: a(href="/pokemons?page=4") Page 4
+    li: a(href="/pokemons?page=5") Page 5
+    li: a(href="/pokemons?page=6") Page 6
