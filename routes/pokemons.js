@@ -17,7 +17,11 @@ const asyncHandler = (handler) => {
 
 
 router.get('/', asyncHandler(async(req, res) =>{
-    const pokemon = await db.Pokemon.findAll()
+    const page = req.query.page=== undefined? 1 : parseInt(req.query.page)
+    const pokemon = await db.Pokemon.findAll({
+        limit: 30,
+        offset: 30 * (page-1)
+    })
     res.render('pokemon', { title:'pokemon', pokemon } )
 })
 )

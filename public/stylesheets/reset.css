@@ -139,3 +139,17 @@ input {
   border-radius: 7px;
 
 }
+
+
+.uppercase{
+  text-transform: capitalize;
+}
+
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  float: left;
+}
