@@ -1,0 +1,9 @@
+extends layout.pug
+block content
+    h1= title
+    each monster in pokemon
+        div(class="card")
+            p= monster.name
+            p= monster.description
+            p= monster.type
+            img(src=monster.image)
