@@ -36,11 +36,9 @@ router.get('/:trainerId(\\d+)', asyncHandler(async (req, res) => {
         })
 
 
-        res.render('profile', { title: 'Profile', catchlists})
+        res.render('profile', { title: 'Profile', catchlists })
 
 
-    } else {
-        res.redirect('/trainers/login')
     }
 }))
 
@@ -49,11 +47,17 @@ router.get('/:trainerId(\\d+)', asyncHandler(async (req, res) => {
 router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
     //run query on join table where catchlistId is catchlistId
 
-        const catchlistId = parseInt(req.params.catchlistId)
-        const jointable = await db.CatchlistJoinPokemon.findAll({
-            where: {catchlistId},
-            include: db.Pokemon
-        })
+    const catchlistId = parseInt(req.params.catchlistId, 10)
+    const jointable = await db.CatchlistJoinPokemon.findAll({
+        include: {
+            model: db.Pokemon,
+            where: {
+                catchlistId
+            }
+        }
+    })
+    // console.log('CatchList ---->', jointable)
+    res.render('catchlist', { jointable })
 }))
 
 
