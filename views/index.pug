@@ -8,3 +8,11 @@ append head
 
 block content
   h1= title
+  each pokemon in pokemons
+    a(class="card-container" href=`/pokemons/${pokemon.id}`)
+      div(class="card grow")
+        img(src=pokemon.image)
+        div(class="card-text")
+          span(style="font-weight:bold; font-size:20px; text-transform:uppercase")= pokemon.name
+            p= pokemon.description
+            p= pokemon.type
