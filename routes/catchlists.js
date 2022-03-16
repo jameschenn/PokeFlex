@@ -49,11 +49,11 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
 
     const catchlistId = parseInt(req.params.catchlistId, 10)
     const jointable = await db.CatchlistJoinPokemon.findAll({
-        include: {
-            model: db.Pokemon,
-            where: {
-                catchlistId
-            }
+        include: [
+            db.Pokemon, db.Catchlist
+        ],
+        where: {
+            catchlistId
         }
     })
     // console.log('CatchList ---->', jointable)
