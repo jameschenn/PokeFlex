@@ -23,8 +23,14 @@ router.get('/', asyncHandler(async(req, res) =>{
         offset: 30 * (page-1)
     })
     res.render('pokemon', { title:'pokemon', pokemon } )
-})
-)
+}))
+
+router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+  const pokemonId = parseInt(req.params.id, 10)
+  const pokemon = await db.Pokemon.findByPk(pokemonId);
+  res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon })
+}))
+
 
 
 
