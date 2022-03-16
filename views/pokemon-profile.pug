@@ -9,8 +9,9 @@ block content
                     p= pokemon.description
                     p= pokemon.type
     if locals.authenticated
-        form(action='/users/:id(\\d+)/:list(\\d+)' method='post')
+        form(action='/catchlists/:trainerId(\\d+)/:catchlistId(\\d+)' method='post')
             select(class='drop-down')
                 option(value="Want To Catch") Want To Catch
                 option(value="Trying To Catch") Trying To Catch
                 option(value="Have Caught") Have Caught
+            button(type='Submit' class='grow') Confirm
