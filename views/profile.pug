@@ -1,4 +1,5 @@
 extends layout.pug
 
 block content
-    
+    each catchlist in catchlists
+        a(href=`/catchlists/${catchlist.id}`)= catchlist.catchstatus
