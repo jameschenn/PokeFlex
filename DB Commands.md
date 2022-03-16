@@ -91,4 +91,4 @@ const columnMapping = {
 Catchlist.belongsToMany(models.Pokemon, columnMapping)
 
 CatchlistJoinPokemon
-*currently no associations 
+*currently no associations

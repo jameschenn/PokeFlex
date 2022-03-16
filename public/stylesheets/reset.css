@@ -146,10 +146,43 @@ input {
 }
 
 
-.card {
+/* .card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
+  flex-wrap: no-wrap;
   float: left;
+
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+  text-align: center;
+} */
+
+/* .card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  float: left;
+} */
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 25px;
+  border: 20px;
+  padding: 20px;
+  float: left;
+
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-text {
+  text-align: center;
+  margin-top: 25px;
 }
