@@ -1,6 +1,19 @@
 extends layout.pug
 
+block head
+    link(rel='stylesheet' href='/stylesheets/styles.css') 
 block content
     h2= title
-    each pokemon in pokemonList
-        p= pokemon.name
+        each pokemon in pokemonList
+            div(class="card-container")
+                div(class="card grow")
+                    img(src=pokemon.image)
+                    div(class="card-text")
+                    span(style="font-weight:bold; font-size:20px; text-transform:uppercase; text-align: center")= pokemon.name
+                    button(type="submit") Remove    
+    //- //- h2= title
+    //- div(class="card-text") 
+    //-     each pokemon in pokemonList
+    //-         p= pokemon.name
+    //-         img(src=pokemon.image class="card")
+    //-         button(type="submit") Remove
