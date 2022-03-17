@@ -13,8 +13,8 @@ router.get('/', async function(req, res, next) {
 
     const userId = req.session.auth.userId
     const user = await db.Trainer.findByPk(userId);
-    const username = user.username
-    res.render('index', { title: 'Welcome To PokeFlex', username, pokemons});
+    const username = user
+    res.render('index', { title: 'Welcome To PokeFlex', user, pokemons});
   }
   const username = '';
   res.render('index', {title: 'Welcome to PokeFlex', username, pokemons})
