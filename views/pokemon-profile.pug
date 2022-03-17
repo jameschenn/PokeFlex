@@ -9,10 +9,8 @@ block content
                     p= pokemon.description
                     p= pokemon.type
     if locals.authenticated
-        form(action=`/catchlists/${trainer.id}` method='post' id='form')
-            select(class='drop-down')
+        form(action=`/pokemons/${pokemon.id}` method='post' id='form')
+            select(name= 'catchlistId' class='drop-down')
                 each catchlist in catchlists
                     option(class='formOption' value= catchlist.id)= catchlist.catchstatus
             button(type='Submit' class='grow' class='formButton' id='button') Confirm
-
-
