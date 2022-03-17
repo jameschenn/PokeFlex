@@ -1,0 +1,242 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
+body, header, nav {
+  font-size: 1rem;
+  color: inherit;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-weight: normal;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.div-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(68, 170, 165);
+  margin: 20px 620px;
+  padding: 50px;
+  box-shadow: 10px 5px 4px rgb(148, 142, 142);
+  border-radius: 10px;
+}
+
+.div-form-item {
+  padding: 10px;
+
+}
+
+.div-form-item > button{
+  background-color: #20ad13;
+  margin-top: 10px;
+}
+.div-form > form {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginButton {
+  margin: 10px;
+  background-color: #20ad13;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 255, .2);
+  font-weight: bold;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.errorMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+#signUp {
+  margin: 10px;
+  background-color: #20ad13;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 1px 2px 1px rgba(0, 0, 255, .2);
+  font-weight: bold;
+  color: white;
+}
+
+.aTag {
+  display: flex;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 15px;
+}
+
+li:not(:last-child) {
+    border-right:solid 1px rgb(211, 0, 0);/* This will not give border to last li element */
+}
+
+.homeButton {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+}
+
+#logout {
+  background-color: darkred;
+  font-weight: bold;
+  color: white;
+}
+
+
+#demo {
+  background-color: yellow;
+  color: black;
+}
+
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+input {
+  border: none;
+  border-radius: 7px;
+
+}
+
+
+.uppercase{
+  text-transform: capitalize;
+}
+
+/* Nav Bar */
+nav {
+  background-color: red;
+  align-items: center;
+
+  display: flex;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  height: 60px;
+}
+
+.nav_links {
+  display: flex;
+  padding-left: 30px;
+  /* justify-content: space-between; */
+  align-items: center;
+  list-style-type: none;
+
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 40px;
+  margin-left: 30px;
+}
+
+.welcome {
+  font-weight: 500;
+  font-size: 24px;
+  margin-right: 20px;
+}
+
+.right-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 800px;
+}
+
+/* Pokemon Cards */
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 25px;
+  border: 20px;
+  padding: 20px;
+  float: left;
+
+  border-radius: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.card-text {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* .page-links {
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 500px;
+  right: 700px;
+} */
+
+
+.drop-down  {
+  display: inline-block;
+  position: relative;
+  background-color: #20ad13;
+  border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+
+option {
+  border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
