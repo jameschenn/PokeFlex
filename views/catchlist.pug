@@ -2,4 +2,5 @@ extends layout.pug
 
 block content
     h2= title
-    
+    each pokemon in pokemonList
+        p= pokemon.name
