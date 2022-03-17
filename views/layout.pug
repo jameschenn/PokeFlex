@@ -3,27 +3,24 @@ html
   head
       block head
         title="Express Starter App"
+        script(src='/javascripts/index.js' type='module')
         link(rel='stylesheet' href='/stylesheets/styles.css')
   body
     nav
-      h2(class="logo") PokéFlex
-      //- img(src="/logo.png")
+      h2 PokéFlex
       ul(class="nav_links")
         li: a(class="aTag" href="/") Home
         if locals.authenticated
           li: a(class="aTag" href=`/catchlists/${user.id}`) My Pokémon
-        else
-          li: a(class="aTag" href="/users/login") My Pokémon
         li: a(class="aTag" href="/pokemons") All Pokémon
       if locals.authenticated
-        div(class="right-head")
-          h2(class="welcome") Welcome #{user.username}
-          form(action="/users/logout" method='post')
-            button(class="homeButton grow" id='logout' type='submit') Logout
+        div
+          h2 Welcome #{user.username}
+        form(action="/users/logout" method='post')
+          button(class="homeButton grow" id='logout' type='submit') Logout
       else
-        div(class="right-head")
-          form(action='/users/demouser' method='post')
-            button(class="homeButton grow" id="demo" type='submit') Demo User
-          a(class="aTag" href="/users/login") Login
-          a(class="aTag" href="/users/signup") Sign Up
+        form(action='/users/demouser' method='post')
+          button(class="homeButton grow" id="demo" type='submit') Demo User
+        a(class="aTag" href="/users/login") Login
+        a(class="aTag" href="/users/signup") Sign Up
     block content

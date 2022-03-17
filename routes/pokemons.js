@@ -30,6 +30,8 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   const pokemonId = parseInt(req.params.id, 10)
   const pokemon = await db.Pokemon.findByPk(pokemonId);
   let catchlists;
+  let trainer;
+
   // check if logged in
   // get session auth id
   // pass that in to find the trainer
@@ -37,15 +39,16 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
   // render catchlists in the pug template
   if(req.session.auth) {
     const id = req.session.auth.userId
-    const trainer = await db.Trainer.findByPk(id);
-    console.log(trainer)
+    trainer = await db.Trainer.findByPk(id);
     catchlists = await db.Catchlist.findAll({
       where: { trainerId: trainer.id}
     })
   }
-  console.log(catchlists)
-  res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists })
+  console.log("TRAINER --->", trainer);
+  console.log("CATCHLIST ---->", catchlists)
+  res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists, trainer })
 }))
+
 
 // router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
 //   const pokemonId = parseInt(req.params.id, 10)
@@ -53,6 +56,30 @@ router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
 
 // }))
 
+
+// router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+
+//   const pokemonId = parseInt(req.params.id, 10)
+//   const pokemon = await db.Pokemon.findByPk(pokemonId);
+//   let catchlists;
+//   let trainer;
+
+//   // check if logged in
+//   // get session auth id
+//   // pass that in to find the trainer
+//   // then find all catchlists associated to the trainer
+//   // render catchlists in the pug template
+//   if(req.session.auth) {
+//     const id = req.session.auth.userId
+//     trainer = await db.Trainer.findByPk(id);
+//     catchlists = await db.Catchlist.findAll({
+//       where: { trainerId: trainer.id}
+//     })
+//   }
+//   console.log("TRAINER --->", trainer);
+//   console.log("CATCHLIST ---->", catchlists)
+//   res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists, trainer })
+// }))
 
 
 

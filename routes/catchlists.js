@@ -43,6 +43,17 @@ router.get('/:trainerId(\\d+)', asyncHandler(async (req, res) => {
 }))
 
 
+router.post('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
+    const trainerId = parseInt(req.param.trainerId, 10)
+    console.log('REQ BODY', req.body);
+    const { catchlistId, pokemonId } = req.body;
+    await db.CatchlistJoinPokemon.create({
+        catchlistId,
+        pokemonId
+    })
+    res.redirect(`${trainerId}/${catchlistId}`)
+    // res.send('ok');
+}))
 
 router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
     //run query on join table where catchlistId is catchlistId
