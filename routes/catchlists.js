@@ -48,16 +48,28 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     //run query on join table where catchlistId is catchlistId
 
     const catchlistId = parseInt(req.params.catchlistId, 10)
-    const jointable = await db.CatchlistJoinPokemon.findAll({
-        include: [
-            db.Pokemon, db.Catchlist
-        ],
-        where: {
-            catchlistId
-        }
+    console.log('type')
+    // const jointable = await db.CatchlistJoinPokemon.findAll(
+    //     {
+    //     include: {
+    //         model: db.Pokemon,
+    //         include: db.Catchlist
+    //     }
+    //     // where: {
+    //     //     catchlistId
+    //     // }
+    // }
+    // )
+    const pokemons = await db.Catchlist.findAll({
+        include: db.Pokemon,
+        where: {id: catchlistId}
+        
     })
-    // console.log('CatchList ---->', jointable)
-    res.render('catchlist', { jointable })
+        const pokemonList = pokemons[0].Pokemons
+        console.log(pokemonList)
+    // console.log('CatchList ---->', pokemon[0].Pokemons.length)
+    res.render('catchlist', { title: 'catchlists', pokemonList })
+
 }))
 
 
