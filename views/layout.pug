@@ -9,11 +9,12 @@ html
       h2 PokéFlex
       ul(class="nav_links")
         li: a(class="aTag" href="/") Home
-        li: a(class="aTag" href="/") My Pokémon
+        if locals.authenticated
+          li: a(class="aTag" href=`/catchlists/${user.id}`) My Pokémon
         li: a(class="aTag" href="/pokemons") All Pokémon
       if locals.authenticated
         div
-          h2 Welcome #{username}
+          h2 Welcome #{user.username}
         form(action="/users/logout" method='post')
           button(class="homeButton grow" id='logout' type='submit') Logout
       else

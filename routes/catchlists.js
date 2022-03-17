@@ -48,7 +48,7 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     //run query on join table where catchlistId is catchlistId
 
     const catchlistId = parseInt(req.params.catchlistId, 10)
-    console.log('type')
+    // console.log('type')
     // const jointable = await db.CatchlistJoinPokemon.findAll(
     //     {
     //     include: {
@@ -63,15 +63,23 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     const pokemons = await db.Catchlist.findAll({
         include: db.Pokemon,
         where: {id: catchlistId}
-        
+
     })
         const pokemonList = pokemons[0].Pokemons
-        console.log(pokemonList)
+        // console.log(pokemonList)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
     res.render('catchlist', { title: 'catchlists', pokemonList })
 
 }))
 
+router.post('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async(req, res) => {
+    const catchlistId = parseInt(req.params.catchlistId, 10)
+    const trainerId = parseInt(req.params.trainerId, 10)
+    // post the pokemon to the catchlist associated to the trainer
+    if(req.session.auth) {
+        res.redirect(`/${trainerId}/${catchlistId}`);
+    }
+}))
 
 
 

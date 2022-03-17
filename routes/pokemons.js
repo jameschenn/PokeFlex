@@ -26,11 +26,32 @@ router.get('/', asyncHandler(async(req, res) =>{
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async(req, res) => {
+
   const pokemonId = parseInt(req.params.id, 10)
   const pokemon = await db.Pokemon.findByPk(pokemonId);
-  res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon })
+  let catchlists;
+  // check if logged in
+  // get session auth id
+  // pass that in to find the trainer
+  // then find all catchlists associated to the trainer
+  // render catchlists in the pug template
+  if(req.session.auth) {
+    const id = req.session.auth.userId
+    const trainer = await db.Trainer.findByPk(id);
+    console.log(trainer)
+    catchlists = await db.Catchlist.findAll({
+      where: { trainerId: trainer.id}
+    })
+  }
+  console.log(catchlists)
+  res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists })
 }))
 
+// router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
+//   const pokemonId = parseInt(req.params.id, 10)
+//   const pokemon = await db.Pokemon.findByPk(pokemonId);
+
+// }))
 
 
 
