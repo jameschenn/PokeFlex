@@ -119,8 +119,25 @@ const signupValidator = [
       const hashPassword = await bcrypt.hash(password, 10);
       user.password = hashPassword;
       await user.save();
+
+      let wantingtoCatch = db.Catchlist.build({
+        catchstatus: "Wanting to Catch",
+        trainerId: user.id,
+      })
+      let tryingtoCatch = db.Catchlist.build({
+        catchstatus: "Trying to Catch",
+        trainerId: user.id,
+      });
+      let alreadyCaught = db.Catchlist.build({
+        catchstatus: "Already Caught",
+        trainerId: user.id,
+      });
+        await wantingtoCatch.save();
+        await tryingtoCatch.save();
+        await alreadyCaught.save()
+
       userLogin(req, res, user)
-      res.redirect('/');
+      req.session.save(() => res.redirect('/'));
     } else {
       errors = validationErrors.array().map((error) => error.msg);
       res.render('signup', {
