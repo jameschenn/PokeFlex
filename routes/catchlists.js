@@ -62,11 +62,11 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     // )
     const pokemons = await db.Catchlist.findAll({
         include: db.Pokemon,
-        where: {id: catchlistId}
+        where: { id: catchlistId }
 
     })
-        const pokemonList = pokemons[0].Pokemons
-        // console.log(pokemonList)
+    const pokemonList = pokemons[0].Pokemons
+    // console.log(pokemonList)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
     res.render('catchlist', { title: 'catchlists', pokemonList })
 
