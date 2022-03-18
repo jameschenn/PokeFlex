@@ -1,10 +1,4 @@
-extends layout
-
-append head
-  //- add page specific styles by appending to the head
-  link(rel="stylesheet" href="/stylesheets/index.css")
-  //- add page specific js
-  script(src="/javascripts/index.js" type="module" defer)
+extends layout.pug 
 
 block content
   h1(style="font-weight:bold; font-size:40px; text-transform:uppercase; text-align:center; color:black" class="mainTitle")= title

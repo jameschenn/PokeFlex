@@ -15,9 +15,10 @@ router.get('/', async function(req, res, next) {
     const user = await db.Trainer.findByPk(userId);
     const username = user
     res.render('index', { title: 'Welcome To PokeFlex', user, pokemons});
+  } else {
+    const username = '';
+    res.render('index', {title: 'Welcome to PokeFlex', username, pokemons})
   }
-  const username = '';
-  res.render('index', {title: 'Welcome To PokeFlex', username, pokemons})
 });
 
 

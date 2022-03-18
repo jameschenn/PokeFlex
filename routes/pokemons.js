@@ -52,15 +52,16 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 
 router.post('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
   let trainer;
-  if(req.session.auth) {
+  if (req.session.auth) {
     const id = req.session.auth.userId
     trainer = await db.Trainer.findByPk(id);
   }
   const pokeId = parseInt(req.params.pokemonId, 10)
   console.log('REQ BODY', req.body);
   const { catchlistId } = req.body;
-  console.log('CATCHLIST ID', catchlistId);
-  console.log('POKEMON ID', pokeId);
+  // console.log('CATCHLIST ID', catchlistId);
+  // console.log('POKEMON ID', pokeId);
+
   await db.CatchlistJoinPokemon.create({
     catchlistId,
     pokemonId: pokeId
@@ -117,17 +118,6 @@ router.delete('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
 //   console.log("CATCHLIST ---->", catchlists)
 //   res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists, trainer })
 // }))
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;
