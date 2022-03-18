@@ -6,12 +6,12 @@ block head
 block content
     h2= title
         each pokemon in pokemonList
-            div(class="card-container")
-                div(class=`card grow ${pokemon.id}`  id=`${pokemon.id}`)
+            div(class="card-container" id=`${pokemon.id}`)
+                div(class=`card grow ${pokemon.id}`)
                     img(src=pokemon.image)
                     div(class="card-text")
                     span(style="font-weight:bold; font-size:20px; text-transform:uppercase; text-align: center")= pokemon.name
-                    form(action=`/catchlists/${trainer.id}/${catchlistId}/${pokemon.id}` method='post')
+                    form(action=`/catchlists/${trainer.id}/${catchlistId}` method='get')
                         button(type="submit" id=`${pokemon.id}-${catchlistId}-${trainer.id}` class='deleteBtn') Remove
     //- //- h2= title
     //- div(class="card-text")

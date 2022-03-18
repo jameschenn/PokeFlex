@@ -23,12 +23,19 @@ window.addEventListener("load", (event)=>{
 
             console.log("pokeID ----->", pokeId);
 
+
+            console.log("Hi")
+            //sends pokeId to backend
             const res = await fetch(`/catchlists/${trainerId}/${catchid}/${pokeId}`, {
                 method: 'DELETE'
             })
+            console.log('Bye');
 
             const data = await res.json()
+            console.log("RES ------>", res);
+
             if(data.message === 'Success') {
+                console.log('IF data')
                 const container = document.querySelector(`#${pokeId}`);
                 container.remove()
             }

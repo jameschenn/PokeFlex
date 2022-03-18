@@ -137,12 +137,9 @@ router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler
     })
     console.log("POKEMON ---------> ", pokemon);
     // const pokemonId = pokemon.id
-    if(pokemon) {
-        await pokemon.destroy()
-        res.json({message: 'Success'});
-    } else {
-        res.json({message: 'Fail'})
-    }
+
+    await pokemon.destroy()
+    res.json({message: 'Success'});
 
 //     // const pokemonList = pokemons[0].Pokemons
 
