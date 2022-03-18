@@ -46,7 +46,8 @@ router.get('/:trainerId(\\d+)', asyncHandler(async (req, res) => {
 
 router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
     //run query on join table where catchlistId is catchlistId
-
+    const trainerId = parseInt(req.params.trainerId, 10)
+    const trainer = await db.Trainer.findByPk(trainerId)
     const catchlistId = parseInt(req.params.catchlistId, 10)
     // console.log('type')
     // const jointable = await db.CatchlistJoinPokemon.findAll(
@@ -66,10 +67,9 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
 
     })
         const pokemonList = pokemons[0].Pokemons
-        console.log
-        // console.log(pokemonList)
+        console.log('POKEMONS ---->', pokemons[0].id)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
-    res.render('catchlist', { title: 'catchlists', pokemonList })
+    res.render('catchlist', { title: 'catchlists', pokemonList, trainer, catchlistId })
 
 }))
 
@@ -120,7 +120,26 @@ router.post('/add', csrfProtection, catchlistValidator, asyncHandler(async (req,
     res.redirect('/:trainerId(\\d+)')
 }))
 
+router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
+    const catchlistId = parseInt(req.params.catchlistId, 10)
+    console.log(catchlistId)
+    // const pokemons = await db.Catchlist.findAll({
+    //     include: db.Pokemon,
+    //     where: { id: catchlistId }
+    // })
+    const pokemon = await db.CatchlistJoinPokemon.findAll({
+        where: catchlistId
+    })
+    console.log(pokemon);
+    // const pokemonId = pokemon.id
+    await db.CatchlistJoinPokemon.destroy({
+      where: { catchlistId },
+      include: db.Pokemon
+    });
 
+    // const pokemonList = pokemons[0].Pokemons
+
+  }))
 
 
 module.exports = router;

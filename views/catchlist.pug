@@ -2,16 +2,17 @@ extends layout.pug
 
 block head
     link(rel='stylesheet' href='/stylesheets/styles.css')
+    script(src="/javascripts/index.js" type="module" defer)
 block content
     h2= title
         each pokemon in pokemonList
             div(class="card-container")
-                div(class="card grow")
+                div(class=`card grow ${pokemon.id}`  id=`${pokemon.id}`)
                     img(src=pokemon.image)
                     div(class="card-text")
                     span(style="font-weight:bold; font-size:20px; text-transform:uppercase; text-align: center")= pokemon.name
-                    form(action=`/pokemons/${pokemon.id}` method='post')
-                        button(type="submit") Remove
+                    form(action=`/catchlists/${trainer.id}/${catchlistId}` method='post')
+                        button(type="submit" id=`${pokemon.id}-${catchlistId}-${trainer.id}` class='deleteBtn') Remove
     //- //- h2= title
     //- div(class="card-text")
     //-     each pokemon in pokemonList
