@@ -129,7 +129,7 @@ router.post('/:trainerId(\\d+)', csrfProtection, catchlistValidator, asyncHandle
 
 // router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res, next) => {
 //     if (req.session.auth) {
-//         const trainerId = req.session.auth.userId;
+//         const trainerId = parseInt(req.params.trainerId, 10);
 //         console.log('hi--------------------', req.params.userid)
 //         // const catchlist = await db.Catchlist.findByPk();
 //         res.render('edit-list', {
@@ -141,6 +141,21 @@ router.post('/:trainerId(\\d+)', csrfProtection, catchlistValidator, asyncHandle
 //     }
 // }))
 
+//Delete entire Catchlist
+router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
+    const catchlistId = parseInt(req.params.catchlistId, 10)
+
+    const catchlist = await db.Catchlist.findOne({
+        where: {
+            id: catchlistId,
+        }
+    });
+    console.log('catchlist ----------', catchlist)
+    await catchlist.destroy()
+    res.json({ message: 'Success' });
+}))
+
+//Delete Pokemon off of List
 router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler(async (req, res) => {
     const catchlistId = parseInt(req.params.catchlistId, 10)
     const pokeId = parseInt(req.params.pokeId, 10)
