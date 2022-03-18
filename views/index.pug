@@ -1,12 +1,12 @@
-extends layout.pug 
+extends layout.pug
 
 block content
-  h1(style="font-weight:bold; font-size:40px; text-transform:uppercase; text-align:center; color:black" class="mainTitle")= title
+  h1= title
   each pokemon in pokemons
-    a(class="card-container" href=`/pokemons/${pokemon.id}` id="homecards")
+    a(class="card-container" href=`/pokemons/${pokemon.id}`)
       div(class="card grow")
         img(src=pokemon.image)
         div(class="card-text")
           span(style="font-weight:bold; font-size:20px; text-transform:uppercase")= pokemon.name
-          p= pokemon.description
-          p= pokemon.type
+            p= pokemon.description
+            p= pokemon.type
