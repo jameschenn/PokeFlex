@@ -282,6 +282,21 @@ nav {
   background-color: green;
 }
 
+
+.page-links{
+  position: fixed;
+  z-index: 9999;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  padding-top:10px;
+  margin-left: 1445px;
+  list-style-type: none;
+}
+
+
+
 .drop-down  {
   display: inline-block;
   position: relative;
