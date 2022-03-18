@@ -67,7 +67,7 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
 
     })
         const pokemonList = pokemons[0].Pokemons
-        console.log('POKEMONS ---->', pokemons[0].id)
+        // console.log('POKEMONS ---->', pokemons[0].id)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
     res.render('catchlist', { title: 'catchlists', pokemonList, trainer, catchlistId })
 
@@ -120,26 +120,33 @@ router.post('/add', csrfProtection, catchlistValidator, asyncHandler(async (req,
     res.redirect('/:trainerId(\\d+)')
 }))
 
-router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
+router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler(async (req, res) => {
     const catchlistId = parseInt(req.params.catchlistId, 10)
+    const pokeId = parseInt(req.params.pokeId, 10)
     console.log(catchlistId)
+    console.log(pokeId)
     // const pokemons = await db.Catchlist.findAll({
     //     include: db.Pokemon,
     //     where: { id: catchlistId }
     // })
-    const pokemon = await db.CatchlistJoinPokemon.findAll({
-        where: catchlistId
+    const pokemon = await db.CatchlistJoinPokemon.findOne({
+        where: {
+            catchlistId,
+            pokemonId: pokeId
+        }
     })
-    console.log(pokemon);
+    console.log("POKEMON ---------> ", pokemon);
     // const pokemonId = pokemon.id
-    await db.CatchlistJoinPokemon.destroy({
-      where: { catchlistId },
-      include: db.Pokemon
-    });
+    if(pokemon) {
+        await pokemon.destroy()
+        res.json({message: 'Success'});
+    } else {
+        res.json({message: 'Fail'})
+    }
 
-    // const pokemonList = pokemons[0].Pokemons
+//     // const pokemonList = pokemons[0].Pokemons
 
-  }))
+}))
 
 
 module.exports = router;

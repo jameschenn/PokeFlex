@@ -71,7 +71,29 @@ router.post('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
   res.redirect(`/catchlists/${trainer.id}/${catchlistId}`);
 }))
 
+// router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
+//   const catchlistId = parseInt(req.params.catchlistId, 10)
+//   // console.log(catchlistId)
+//   // const pokemons = await db.Catchlist.findAll({
+//   //     include: db.Pokemon,
+//   //     where: { id: catchlistId }
+//   // })
+//   const pokemon = await db.CatchlistJoinPokemon.findOne({
+//       where: {
+//           catchlistId,
 
+//       }
+//   })
+//   console.log("POKEMON ---------> ", pokemon);
+//   // const pokemonId = pokemon.id
+//   await db.CatchlistJoinPokemon.destroy({
+//     where: { catchlistId },
+//   //   include: db.Pokemon
+//   });
+
+//     // const pokemonList = pokemons[0].Pokemons
+
+// }))
 // router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
 //   const pokemonId = parseInt(req.params.id, 10)
 //   const pokemon = await db.Pokemon.findByPk(pokemonId);

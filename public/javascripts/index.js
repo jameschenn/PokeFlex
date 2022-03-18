@@ -21,7 +21,9 @@ window.addEventListener("load", (event)=>{
             const catchid = e.target.id.split('-')[1];
             const trainerId = e.target.id.split('-')[2];
 
-            const res = await fetch(`/catchlists/${trainerId}/${catchid}`, {
+            console.log("pokeID ----->", pokeId);
+
+            const res = await fetch(`/catchlists/${trainerId}/${catchid}/${pokeId}`, {
                 method: 'DELETE'
             })
 
