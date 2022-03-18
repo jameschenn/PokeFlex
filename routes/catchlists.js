@@ -90,9 +90,9 @@ const catchlistValidator = [
         .withMessage('Catch List name must not be more than 60 characters long')
 ]
 
-router.get('/add', csrfProtection, asyncHandler(async(req, res, next) => {
-    if(req.session.auth) {
-        const trainerId = parseInt(req.params.trainerId, 10)
+router.get('/add', csrfProtection, asyncHandler(async (req, res, next) => {
+    if (req.session.auth) {
+        const trainerId = req.session.auth.userId;
         const catchlist = db.Catchlist.build();
         res.render('new-list', {
             title: "Create new Catchlist",
@@ -103,22 +103,43 @@ router.get('/add', csrfProtection, asyncHandler(async(req, res, next) => {
     }
 }))
 
-router.post('/add', csrfProtection, catchlistValidator, asyncHandler(async (req, res) => {
-    const { name, trainerId } = req.body;
+router.post('/:trainerId(\\d+)', csrfProtection, catchlistValidator, asyncHandler(async (req, res) => {
 
-    const catchlist = db.Catchlist.build({ name, trainerId });
-
+    const { catchlist_name } = req.body;
+    const trainerId = parseInt(req.params.trainerId, 10);
+    const catchlist = db.Catchlist.build({ catchstatus: catchlist_name, trainerId });
+    console.log('catchlist---------------', catchlist)
     const validationErrors = validationResult(req);
-    const errors = validationErrors.array().map((error) => error.msg);
-    res.render('new-list', {
-        title: 'Create New Catchlist',
-        catchlist,
-        trainerId,
-        errors,
-        csrfToken: req.csrfToken()
-    });
-    res.redirect('/:trainerId(\\d+)')
+
+    if (validationErrors.isEmpty()) {
+        await catchlist.save()
+        res.redirect(`/catchlists/${trainerId}`);
+    } else {
+        const errors = validationErrors.array().map(error => error.msg)
+        res.render('new-list', {
+            title: 'Create New Catchlist',
+            catchlist,
+            trainerId,
+            errors,
+            csrfToken: req.csrfToken()
+        })
+    }
 }))
+
+
+// router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res, next) => {
+//     if (req.session.auth) {
+//         const trainerId = req.session.auth.userId;
+//         console.log('hi--------------------', req.params.userid)
+//         // const catchlist = await db.Catchlist.findByPk();
+//         res.render('edit-list', {
+//             title: "Edit Catchlist",
+//             // catchlist,
+//             trainerId,
+//             csrfToken: req.csrfToken()
+//         });
+//     }
+// }))
 
 router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler(async (req, res) => {
     const catchlistId = parseInt(req.params.catchlistId, 10)
