@@ -17,7 +17,7 @@ router.get('/', async function(req, res, next) {
     res.render('index', { title: 'Welcome To PokeFlex', user, pokemons});
   }
   const username = '';
-  res.render('index', {title: 'Welcome to PokeFlex', username, pokemons})
+  res.render('index', {title: 'Welcome To PokeFlex', username, pokemons})
 });
 
 

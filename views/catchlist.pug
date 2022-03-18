@@ -3,18 +3,14 @@ extends layout.pug
 block head
     link(rel='stylesheet' href='/stylesheets/styles.css')
 block content
-    h2= title
+    h2(style="font-weight:bold; font-size:40px; text-transform:uppercase; text-align:center")= title
         each pokemon in pokemonList
             div(class="card-container")
                 div(class="card grow")
                     img(src=pokemon.image)
                     div(class="card-text")
-                    span(style="font-weight:bold; font-size:20px; text-transform:uppercase; text-align: center")= pokemon.name
-                    form(action=`/pokemons/${pokemon.id}` method='delete')
-                        button(type="submit") Remove
-    //- //- h2= title
-    //- div(class="card-text")
-    //-     each pokemon in pokemonList
-    //-         p= pokemon.name
-    //-         img(src=pokemon.image class="card")
-    //-         button(type="submit") Remove
+                    span(style="font-weight:bold; font-size:20px; text-transform:uppercase; text-align:center")= pokemon.name
+                    p(style="text-align:center")= pokemon.description
+                    p(style="text-align:center")= pokemon.type
+                    br
+                    button(type="submit" id=`pokemon-button-${pokemon.id}` class="deleteBtn grow" style="font-weight:bold; font-size:20px") Remove

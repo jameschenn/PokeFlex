@@ -14,6 +14,8 @@ const {userLogin,userRestore,requireAuth, userLogout} = require('./auth')
 const pokemonRouter = require('./routes/pokemons')
 const catchlistRouter = require('./routes/catchlists')
 
+
+
 const app = express();
 
 // view engine setup
@@ -47,7 +49,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/pokemons', pokemonRouter)
 app.use('/catchlists', catchlistRouter)
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -79,10 +79,10 @@ router.delete('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
 
   // })
   if(pokemon) {
-    await db.CatchlistJoinPokemon.destory({
-      where: { pokemonId }
-    });
+    await pokemon.destory();
     res.json({message: 'Successfully Deleted'})
+  } else{
+    res.json({message:"Failed to Delete"})
   }
   // const pokemonList = pokemons[0].Pokemons
 
