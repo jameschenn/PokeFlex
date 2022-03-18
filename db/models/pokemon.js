@@ -11,10 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     const columnMapping = {
       foreignKey: 'pokemonId',
       through: 'CatchlistJoinPokemon',
-      otherKey: 'catchlistId'
+      otherKey: 'catchlistId',
+      onDelete: 'CASCADE',
+      hooks: true
     }
     Pokemon.belongsToMany(models.Catchlist, columnMapping)
-    
+
     Pokemon.hasMany(models.Review, {foreignKey: 'pokemonId'})
   };
   return Pokemon;
