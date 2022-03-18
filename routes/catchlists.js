@@ -62,11 +62,11 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     // )
     const pokemons = await db.Catchlist.findAll({
         include: db.Pokemon,
-        where: { id: catchlistId }
+        where: {id: catchlistId}
 
     })
-    const pokemonList = pokemons[0].Pokemons
-    // console.log(pokemonList)
+        const pokemonList = pokemons[0].Pokemons
+        // console.log(pokemonList)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
     res.render('catchlist', { title: 'catchlists', pokemonList })
 
@@ -81,6 +81,43 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
 //     }
 // }))
 
+const catchlistValidator = [
+    check('catchlist_name')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a Catch List name')
+        .isLength({ max: 60 })
+        .withMessage('Catch List name must not be more than 60 characters long')
+]
+
+router.get('/add', csrfProtection, asyncHandler(async(req, res, next) => {
+    if(req.session.auth) {
+        const trainerId = parseInt(req.params.trainerId, 10)
+        const catchlist = db.Catchlist.build();
+        res.render('new-list', {
+            title: "Create new Catchlist",
+            catchlist,
+            trainerId,
+            csrfToken: req.csrfToken()
+        });
+    }
+}))
+
+router.post('/add', csrfProtection, catchlistValidator, asyncHandler(async (req, res) => {
+    const { name, trainerId } = req.body;
+
+    const catchlist = db.Catchlist.build({ name, trainerId });
+
+    const validationErrors = validationResult(req);
+    const errors = validationErrors.array().map((error) => error.msg);
+    res.render('new-list', {
+        title: 'Create New Catchlist',
+        catchlist,
+        trainerId,
+        errors,
+        csrfToken: req.csrfToken()
+    });
+    res.redirect('/:trainerId(\\d+)')
+}))
 
 
 

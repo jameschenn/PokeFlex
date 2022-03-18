@@ -3,3 +3,5 @@ extends layout.pug
 block content
     each catchlist in catchlists
         a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}`)= catchlist.catchstatus
+    div
+        a(class="aTag" href=`/catchlists/add`) Add new Catchlist
