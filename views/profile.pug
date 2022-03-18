@@ -2,6 +2,8 @@ extends layout.pug
 
 block content
     each catchlist in catchlists
-        a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}`)= catchlist.catchstatus
+        a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}` class="catchlists grow")= catchlist.catchstatus
     div
-        a(class="aTag" href=`/catchlists/add`) Add new Catchlist
+        a(class="bTag grow" href=`/catchlists/add`) + Add new Catchlist
+    div
+        img(src='/newpokedex.png' , alt='some image', class="pokedex")

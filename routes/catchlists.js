@@ -69,7 +69,7 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
         const pokemonList = pokemons[0].Pokemons
         // console.log('POKEMONS ---->', pokemons[0].id)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
-    res.render('catchlist', { title: 'catchlists', pokemonList, trainer, catchlistId })
+    res.render('catchlist', { title: `My List`, pokemonList, trainer, catchlistId })
 
 }))
 

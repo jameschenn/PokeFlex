@@ -22,7 +22,7 @@ router.get('/', asyncHandler(async (req, res) => {
     limit: 30,
     offset: 30 * (page - 1)
   })
-  res.render('pokemon', { title: 'pokemon', pokemon })
+  res.render('pokemon', { title: 'All Pokemons', pokemon })
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
@@ -71,29 +71,23 @@ router.post('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
   res.redirect(`/catchlists/${trainer.id}/${catchlistId}`);
 }))
 
-// router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
-//   const catchlistId = parseInt(req.params.catchlistId, 10)
-//   // console.log(catchlistId)
-//   // const pokemons = await db.Catchlist.findAll({
-//   //     include: db.Pokemon,
-//   //     where: { id: catchlistId }
-//   // })
-//   const pokemon = await db.CatchlistJoinPokemon.findOne({
-//       where: {
-//           catchlistId,
+router.delete('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
+  const pokemonId = parseInt(req.params.pokemonId, 10)
+  const pokemon = await db.Pokemon.findByPk(pokemonId);
+  // const pokemons = await db.Catchlist.findAll({
+  //     include: db.Pokemon,
+  //     where: { id: catchlistId }
 
-//       }
-//   })
-//   console.log("POKEMON ---------> ", pokemon);
-//   // const pokemonId = pokemon.id
-//   await db.CatchlistJoinPokemon.destroy({
-//     where: { catchlistId },
-//   //   include: db.Pokemon
-//   });
+  // })
+  if(pokemon) {
+    await pokemon.destory();
+    res.json({message: 'Successfully Deleted'})
+  } else{
+    res.json({message:"Failed to Delete"})
+  }
+  // const pokemonList = pokemons[0].Pokemons
 
-//     // const pokemonList = pokemons[0].Pokemons
-
-// }))
+}))
 // router.post('/:id(\\d+)', asyncHandler(async(req, res) => {
 //   const pokemonId = parseInt(req.params.id, 10)
 //   const pokemon = await db.Pokemon.findByPk(pokemonId);

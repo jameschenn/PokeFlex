@@ -1,13 +1,13 @@
 extends layout.pug
 block content
 
-    h1= title
+    h1(style="font-weight:bold; font-size:40px; text-transform:uppercase; text-align:center")= title
     each monster in pokemon
         a(class="card-container" href=`/pokemons/${monster.id}`)
             div(class="card grow")
                 img(src=monster.image)
                 div(class="card-text")
-                    span(style="font-weight:bold; font-size:20px; text-transform:uppercase")= monster.name
+                    span(style="font-weight:bold; font-size:20px; text-transform:uppercase; text-align:center")= monster.name
                     p= monster.description
                     p= monster.type
 
