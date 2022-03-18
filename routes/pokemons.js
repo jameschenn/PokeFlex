@@ -22,7 +22,7 @@ router.get('/', asyncHandler(async (req, res) => {
     limit: 30,
     offset: 30 * (page - 1)
   })
-  res.render('pokemon', { title: 'pokemon', pokemon })
+  res.render('pokemon', { title: 'All Pokemons', pokemon })
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {

@@ -196,7 +196,7 @@ nav {
 
 /* Pokemon Cards */
 
-.card {
+.card{
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -211,20 +211,15 @@ nav {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
 }
 
+
 .card-text {
   text-align: center;
   margin-top: 25px;
 }
 
-/* .page-links {
-  background-color: orange;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-top: 500px;
-  right: 700px;
-} */
-
+.page-links a:hover:not(.active) {
+  background-color: green;
+}
 
 .drop-down  {
   display: inline-block;
