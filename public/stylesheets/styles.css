@@ -250,7 +250,7 @@ nav {
   align-items: center;
   background-color: rgb(68, 170, 165);
   margin: 20px 620px;
-  padding: 30px;
+  padding: 20px;
   /* box-shadow: 10px 5px 4px rgb(148, 142, 142); */
   border-radius: 10px;
   background-image: linear-gradient(to right, #80ff72 ,#7ee8fa);
@@ -258,7 +258,7 @@ nav {
   font-size: 30px;
   font-style: oblique;
   margin-left: 20px;
-  margin-top: 100px;
+  margin-top: 120px;
 }
 
 /* .catchlists:hover{
@@ -281,6 +281,21 @@ nav {
 .page-links a:hover:not(.active) {
   background-color: green;
 }
+
+
+.page-links{
+  position: fixed;
+  z-index: 9999;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  padding-top:10px;
+  margin-left: 1445px;
+  list-style-type: none;
+}
+
+
 
 .drop-down  {
   display: inline-block;
@@ -339,4 +354,11 @@ option {
   top:10px;
   right: 10px;
   margin-top: 100px;
+}
+
+
+.teamrocket{
+  width: 800px;
+  height: 800px;
+  margin-left: 127px;
 }
