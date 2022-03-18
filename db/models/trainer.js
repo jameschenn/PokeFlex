@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Trainer.associate = function(models) {
     // associations can be defined here
-    Trainer.hasMany(models.Catchlist, { foreignKey: 'trainerId' });
+    Trainer.hasMany(models.Catchlist, { foreignKey: 'trainerId', onDelete: 'CASCADE', hooks: true });
     Trainer.hasMany(models.Review, { foreignKey: 'trainerId' });
   };
   return Trainer;

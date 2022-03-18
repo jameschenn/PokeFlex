@@ -2,7 +2,10 @@ extends layout.pug
 
 block content
     each catchlist in catchlists
-        a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}` class="catchlists grow")= catchlist.catchstatus
+        a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}` id=`${catchlist.id}` class="catchlists grow")= catchlist.catchstatus
+        div(id=`${catchlist.id}`)
+            form(action=`/catchlists/${catchlist.trainerId}/${catchlist.id}` method='get')
+                button(type="submit" id=`${catchlist.trainerId}-${catchlist.id}` class='deleteListBtn') Delete Catchlist
     div
         a(class="bTag grow" href=`/catchlists/add`) + Add new Catchlist
     div
