@@ -4,16 +4,18 @@ module.exports = (sequelize, DataTypes) => {
     catchstatus: DataTypes.STRING,
     trainerId: DataTypes.INTEGER
   }, {});
-  Catchlist.associate = function(models) {
+  Catchlist.associate = function (models) {
     // associations can be defined here
-    Catchlist.belongsTo(models.Trainer, {foreignKey: 'trainerId'});
+    Catchlist.belongsTo(models.Trainer, { foreignKey: 'trainerId' });
 
     const columnMapping = {
-    foreignKey: 'catchlistId',
-    through: 'CatchlistJoinPokemon',
-    otherKey: 'pokemonId'
+      foreignKey: 'catchlistId',
+      through: 'CatchlistJoinPokemon',
+      otherKey: 'pokemonId',
+      onDelete: 'CASCADE',
+      hooks: true
     };
     Catchlist.belongsToMany(models.Pokemon, columnMapping);
-    };
-    return Catchlist;
+  };
+  return Catchlist;
 };
