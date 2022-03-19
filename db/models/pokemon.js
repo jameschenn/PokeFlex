@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     image: DataTypes.STRING,
     description: DataTypes.TEXT,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    biology: DataTypes.TEXT
   }, {});
   Pokemon.associate = function(models) {
     // associations can be defined here
