@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   CatchlistJoinPokemon.associate = function(models) {
     // associations can be defined here
+    // CatchlistJoinPokemon.belongsTo(models.Catchlist, { foreignKey: 'catchlistId' })
   };
   return CatchlistJoinPokemon;
 };
