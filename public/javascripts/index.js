@@ -21,21 +21,14 @@ window.addEventListener("load", (event)=>{
             const catchid = e.target.id.split('-')[1];
             const trainerId = e.target.id.split('-')[2];
 
-            console.log("pokeID ----->", pokeId);
-
-
-            console.log("Hi")
             //sends pokeId to backend
             const res = await fetch(`/catchlists/${trainerId}/${catchid}/${pokeId}`, {
                 method: 'DELETE'
             })
-            console.log('Bye');
 
             const data = await res.json()
-            console.log("RES ------>", res);
 
             if(data.message === 'Success') {
-                console.log('IF data')
                 const container = document.querySelector(`#${pokeId}`);
                 container.remove()
             }
