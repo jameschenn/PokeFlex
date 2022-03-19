@@ -282,21 +282,33 @@ nav {
 }
 
 .page-links a:hover:not(.active) {
-  background-color: green;
+  background-color: coral;
 }
 
 
 .page-links{
-  position: absolute;
+  /* position: absolute;
   z-index: 9999;
   /* display: block; */
   /* width: 100%; */
-  padding: 10px;
-  right: 20px;
+  /* padding: 10px;
+  right: 20px; */
   /* margin-top: 15px;
   padding-top:10px;
   margin-left: 1445px; */
+   /* width:100%;
+  z-index:100; */
   list-style-type: none;
+  position:fixed;
+  float: right;
+  right: 0;
+  padding: 50px;
+  color:black;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: rgb(204, 204, 204);
+  background: rgba(204, 204, 204, 0.5);
+  margin-top: 10px;
 }
 
 
@@ -361,8 +373,18 @@ option {
 }
 
 
-.teamrocket{
-  width: 800px;
-  height: 800px;
+.ashpikachu{
+  width: 300px;
+  height: 500px;
   margin-left: 127px;
+  position: fixed;
+  right: 0px; bottom: 0px;
+  padding: 5px;
+}
+
+
+
+.deleteListBtn{
+  border-radius: 10px;
+  background-color: red;
 }
