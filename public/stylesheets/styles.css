@@ -106,21 +106,23 @@ button:hover {
 .bTag{
   display: inline;
   align-items: center;
+  position: absolute;
   box-shadow: inset 0 0 0 25px yellow;
   border-radius: 10px;
   text-decoration: none;
   font-size: 20px;
-  margin: 20px 620px;
+  /* margin: 20px 620px;*/
+  left: 30%;
   padding: 5px;
-  margin-left: 439px;
+  /* margin-left: 439px; */
 }
 
 
 
-
+/*
 li:not(:last-child) {
     border-right:solid 1px rgb(211, 0, 0);/* This will not give border to last li element */
-}
+/* } */
 
 .homeButton {
   padding: 5px;
@@ -208,10 +210,11 @@ nav {
 
 .right-head {
   display: flex;
+  position: absolute;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-left: 800px;
+  right: 20px;
 }
 
 /* Pokemon Cards */
@@ -284,14 +287,15 @@ nav {
 
 
 .page-links{
-  position: fixed;
+  position: absolute;
   z-index: 9999;
-  display: block;
-  width: 100%;
+  /* display: block; */
+  /* width: 100%; */
   padding: 10px;
-  margin-top: 15px;
+  right: 20px;
+  /* margin-top: 15px;
   padding-top:10px;
-  margin-left: 1445px;
+  margin-left: 1445px; */
   list-style-type: none;
 }
 

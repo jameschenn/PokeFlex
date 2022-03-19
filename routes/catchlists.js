@@ -49,6 +49,7 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     const trainerId = parseInt(req.params.trainerId, 10)
     const trainer = await db.Trainer.findByPk(trainerId)
     const catchlistId = parseInt(req.params.catchlistId, 10)
+    const catchlist = await db.Catchlist.findByPk(catchlistId)
     // console.log('type')
     // const jointable = await db.CatchlistJoinPokemon.findAll(
     //     {
@@ -66,10 +67,11 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
         where: {id: catchlistId}
 
     })
+    console.log(catchlist.catchstatus)
         const pokemonList = pokemons[0].Pokemons
         // console.log('POKEMONS ---->', pokemons[0].id)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
-    res.render('catchlist', { title: `My List`, pokemonList, trainer, catchlistId })
+    res.render('catchlist', { title: `${catchlist.catchstatus}`, pokemonList, trainer, catchlistId })
 
 }))
 
