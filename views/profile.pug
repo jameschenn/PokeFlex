@@ -5,7 +5,7 @@ block content
         div(id=`div-${catchlist.id}`)
             a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}` id=`${catchlist.id}` class="catchlists grow")= catchlist.catchstatus
                 form(action=`/catchlists/${catchlist.trainerId}/${catchlist.id}` method='get')
-                    button(type="submit" id=`${catchlist.trainerId}-${catchlist.id}` class='deleteListBtn') Delete Catchlist
+                    button(type="submit" id=`${catchlist.trainerId}-${catchlist.id}` class='deleteListBtn grow') Remove Catchlist
     div
         a(class="bTag grow" href=`/catchlists/add`) + Add new Catchlist
     div

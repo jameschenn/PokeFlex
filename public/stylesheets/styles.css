@@ -253,7 +253,7 @@ nav {
   align-items: center;
   background-color: rgb(68, 170, 165);
   margin: 20px 620px;
-  padding: 20px;
+  padding: 5px;
   /* box-shadow: 10px 5px 4px rgb(148, 142, 142); */
   border-radius: 10px;
   background-image: linear-gradient(to right, #80ff72 ,#7ee8fa);
@@ -261,7 +261,7 @@ nav {
   font-size: 30px;
   font-style: oblique;
   margin-left: 20px;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 /* .catchlists:hover{
@@ -282,21 +282,32 @@ nav {
 }
 
 .page-links a:hover:not(.active) {
-  background-color: green;
+  background-color: gray;
 }
 
 
 .page-links{
-  position: absolute;
+  /* position: absolute;
   z-index: 9999;
   /* display: block; */
   /* width: 100%; */
-  padding: 10px;
-  right: 20px;
+  /* padding: 10px;
+  right: 20px; */
   /* margin-top: 15px;
   padding-top:10px;
   margin-left: 1445px; */
+   /* width:100%;
+  z-index:100; */
   list-style-type: none;
+  position:fixed;
+  float: right;
+  right: 0;
+  padding: 50px;
+  color:black;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #D9FEF7;
+  margin-top: 10px;
 }
 
 
@@ -357,12 +368,37 @@ option {
   position:absolute;
   top:10px;
   right: 10px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 
-.teamrocket{
-  width: 800px;
-  height: 800px;
+.oak{
+  width: 385px;
+  height: 400px;
   margin-left: 127px;
+  position: fixed;
+  right: 0px; bottom: 0px;
+  padding: 5px;
+}
+
+
+
+.deleteListBtn{
+  border-radius: 10px;
+  background-color: red;
+}
+
+
+.about-content{
+  font-size: 18px;
+  text-decoration: none;
+  padding: 20px;
+  background-color: #D9FEF7;
+  flex-wrap: wrap;
+  display: flex;
+  border-radius: 20px;
+  font-weight: lighter;
+  /* right:0; */
+  width: 1060px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
