@@ -23,14 +23,8 @@ Welcome to the PokéFlex wiki page! PokéFlex, a [Goodreads](https://www.goodrea
 This project is designed by [Grant Walton](https://github.com/Gwantt), [James Chen](https://github.com/jameschenn), [Khoi Doung](https://github.com/kdngaa), and [Dayton Chen](https://github.com/spursforever)
 
 ## Techonology Used
-<img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
-<img src="https://img.icons8.com/fluency/48/000000/pug.png"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" height=40 />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=40/>
-<img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" height=35/>
-<img src="https://img.icons8.com/color/48/000000/css3.png"/>
-<img src="https://img.icons8.com/color/48/000000/nodejs.png"/>
-<img src="https://img.icons8.com/nolan/64/git.png" height=50/>
+<img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/><img src="https://img.icons8.com/fluency/48/000000/pug.png"/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" height=40 /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=40/>
+<img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" height=35/><img src="https://img.icons8.com/color/48/000000/css3.png"/><img src="https://img.icons8.com/color/48/000000/nodejs.png"/><img src="https://img.icons8.com/nolan/64/git.png" height=50/>
 
 ## Getting Started
 1. Clone this repistory

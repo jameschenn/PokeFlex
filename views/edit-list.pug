@@ -3,7 +3,7 @@ block content
 
     h1(class='title') Edit Catch List!
     div(class='div-form')
-        form(class='form' action=`/catchlists/${trainerId}` method="post")
+        form(class='form' action=`/catchlists/:trainerId(\\d+)` method="post")
             input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
             label(class="div-form-item" for="catchlist_name") Catch List Name
             input(class="div-form-item" type="text" name="catchlist_name"  placeholder='Catchlist Name' value=catchlist.catchstatus)

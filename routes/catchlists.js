@@ -64,12 +64,12 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     // )
     const pokemons = await db.Catchlist.findAll({
         include: db.Pokemon,
-        where: {id: catchlistId}
+        where: { id: catchlistId }
 
     })
     console.log(catchlist.catchstatus)
-        const pokemonList = pokemons[0].Pokemons
-        // console.log('POKEMONS ---->', pokemons[0].id)
+    const pokemonList = pokemons[0].Pokemons
+    // console.log('POKEMONS ---->', pokemons[0].id)
     // console.log('CatchList ---->', pokemon[0].Pokemons.length)
     res.render('catchlist', { title: `${catchlist.catchstatus}`, pokemonList, trainer, catchlistId })
 
@@ -144,7 +144,7 @@ router.post('/:trainerId(\\d+)', csrfProtection, catchlistValidator, asyncHandle
 // }))
 
 //Delete entire Catchlist
-router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res) => {
+router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res,) => {
     const catchlistId = parseInt(req.params.catchlistId, 10)
 
     const catchlist = await db.Catchlist.findOne({
@@ -177,11 +177,47 @@ router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler
     // const pokemonId = pokemon.id
 
     await pokemon.destroy()
-    res.json({message: 'Success'});
+    res.json({ message: 'Success' });
 
-//     // const pokemonList = pokemons[0].Pokemons
+    //     // const pokemonList = pokemons[0].Pokemons
 
 }))
+
+router.get('/edit', csrfProtection, asyncHandler(async (req, res, next) => {
+    if (req.session.auth) {
+        const trainerId = req.session.auth.userId;
+        const catchlist = db.Catchlist.build();
+        res.render('edit-list', {
+            title: "Edit Catch List!",
+            catchlist,
+            trainerId,
+            csrfToken: req.csrfToken()
+        })
+    }
+}))
+// catchlistId = parseInt(req.params.catchlistId, 10)
+// trainerId = parseInt(req.params.trainerId, 10)
+// const edit = await db.Catchlist.findOne({
+//     where: {
+//         id: catchlistId,
+//     }
+// });
+// await edit.save();
+// res.json({message: "Catchlist's name successfully updated!"})
+router.patch('/:trainerId(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+    // const { catchstatus } = req.body;
+    // const catchlistEdit = db.Catchlist.build({ catchstatus })
+    const catchlistUpdate = parseInt(req.params.id, 10)
+    const trainerId = parseInt(req.params.trainerId, 10);            
+    const editing = await db.Catchlist.findByPk(catchlistUpdate)
+    console.log("----------------------")
+        editing.catchstatus = req.body.catchstatus
+    // console.log("x-------------------------------------",catchstatus)
+    await editing.save()
+    res.json({ message: "Catchlist name successful updated!" })
+    res.redirect(`/catchlists/${trainerId}`);
+}))
+
 
 
 module.exports = router;

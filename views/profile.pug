@@ -6,6 +6,10 @@ block content
             a(href=`/catchlists/${catchlist.trainerId}/${catchlist.id}` id=`${catchlist.id}` class="catchlists grow")= catchlist.catchstatus
                 form(action=`/catchlists/${catchlist.trainerId}/${catchlist.id}` method='get')
                     button(type="submit" id=`${catchlist.trainerId}-${catchlist.id}` class='deleteListBtn grow') Remove Catchlist
+                    //- button(type="submit" id=`` class='edit') Edit Catchlist's Name
+            form(action=`/catchlists/${catchlist.trainerId}/${catchlist.id}` method='get')
+            //- button(type="submit" id=`${catchlist.trainerId}-${catchlist.id}` class='edit' href=`/catchlists/edit`) Edit Catchlist's Name!
+            a(href=`/catchlists/edit` id=`catchlist-${catchlist.trainerId}-${catchlist.id}` class="catclist edit")  Edit Catchlist 
     div
         a(class="bTag grow" href=`/catchlists/add`) + Add new Catchlist
     div
