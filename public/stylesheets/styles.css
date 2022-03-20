@@ -117,12 +117,9 @@ button:hover {
   /* margin-left: 439px; */
 }
 
-
-
-/*
 li:not(:last-child) {
-    border-right:solid 1px rgb(211, 0, 0);/* This will not give border to last li element */
-/* } */
+    border-right:solid 1px rgb(211, 0, 0);
+}
 
 .homeButton {
   padding: 5px;
@@ -193,19 +190,21 @@ nav {
   /* justify-content: space-between; */
   align-items: center;
   list-style-type: none;
+  font-family: 'Montserrat', sans-serif;
 
 }
 
-.logo {
+/* .logo {
   font-weight: bold;
   font-size: 40px;
   margin-left: 30px;
-}
+} */
 
 .welcome {
   font-weight: 500;
   font-size: 24px;
   margin-right: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .right-head {
@@ -310,7 +309,48 @@ nav {
   margin-top: 10px;
 }
 
+/* Footer */
+footer {
+  background-color: red;
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 80px;
+}
 
+footer h3 {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+footer li {
+  list-style-type: none;
+  margin-top: 4px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+footer p {
+  margin-top: 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.column {
+  width: 25%;
+  float: left;
+  padding: 20px;
+  margin-left: 25px;
+}
+
+.right {
+  margin-left: 800px;
+}
+
+.socials {
+  margin-left: 11px;
+}
 
 .drop-down  {
   display: inline-block;
@@ -345,6 +385,7 @@ option {
   margin-top: 30px;
   margin-bottom: 30px;
   width: 150px;
+  margin-left: 10px;
 }
 
 
