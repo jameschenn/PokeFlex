@@ -20,7 +20,7 @@ Welcome to the PokéFlex wiki page! PokéFlex, a [Goodreads](https://www.goodrea
 [User Stories](https://github.com/jameschenn/PokeFlex/wiki/User-Stories)
 
 ## Project Team
-This project is designed by [Grant Walton](https://github.com/Gwantt), [James Chen](https://github.com/jameschenn), [Khoi Doung](https://github.com/kdngaa), and [Dayton Chen](https://github.com/spursforever)
+This project is designed by [Grant Walton](https://github.com/Gwantt), [James Chen](https://github.com/jameschenn), [Khoi Duong](https://github.com/kdngaa), and [Dayton Chen](https://github.com/spursforever)
 
 ## Techonology Used
 <img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
