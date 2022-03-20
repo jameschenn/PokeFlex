@@ -44,9 +44,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
       where: { trainerId: trainer.id }
     })
   }
-  // console.log("TRAINER --->", trainer);
-  // console.log("CATCHLIST ---->", catchlists)
-  res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists, trainer })
+
+  res.render('pokemon-profile', { title: `About ${pokemon.name}`, pokemon, catchlists, trainer })
 }))
 
 
@@ -57,17 +56,16 @@ router.post('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
     trainer = await db.Trainer.findByPk(id);
   }
   const pokeId = parseInt(req.params.pokemonId, 10)
-  console.log('REQ BODY', req.body);
+
   const { catchlistId } = req.body;
-  // console.log('CATCHLIST ID', catchlistId);
-  // console.log('POKEMON ID', pokeId);
+
 
   await db.CatchlistJoinPokemon.create({
     catchlistId,
     pokemonId: pokeId
   })
 
-  // console.log('hello')
+
   res.redirect(`/catchlists/${trainer.id}/${catchlistId}`);
 }))
 
@@ -114,8 +112,6 @@ router.delete('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
 //       where: { trainerId: trainer.id}
 //     })
 //   }
-//   console.log("TRAINER --->", trainer);
-//   console.log("CATCHLIST ---->", catchlists)
 //   res.render('pokemon-profile', { title: `${pokemon.name}`, pokemon, catchlists, trainer })
 // }))
 

@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
   const pokemons = await db.Pokemon.findAll({
     limit: 9
   })
-  console.log(pokemons)
+  
   if(req.session.auth) {
 
     const userId = req.session.auth.userId

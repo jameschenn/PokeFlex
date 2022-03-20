@@ -1,6 +1,6 @@
 window.addEventListener("load", (event)=>{
 
-    console.log("hello from javascript!")
+
 
     // const form = document.querySelector('#form');
     // const option = document.querySelector('.formSelector');
@@ -8,11 +8,10 @@ window.addEventListener("load", (event)=>{
 
     // formButton.addEventListener('click', e => {
     //     form.action += `/${option.id}`;
-    //     console.log("hello")
     // })
 
     const deleteButton = document.querySelectorAll('.deleteBtn');
-    console.log(deleteButton);
+
     for(let i = 0; i < deleteButton.length; i++) {
         const button = deleteButton[i];
 
