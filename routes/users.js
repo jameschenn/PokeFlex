@@ -82,14 +82,30 @@ const signupValidator = [
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for username')
     .isLength({ max: 60 })
-    .withMessage('Last Name must not be more than 60 characters long'),
+    .withMessage('Last Name must not be more than 60 characters long')
+    .custom( value => {
+      return db.Trainer.findOne({ where: {username: value}})
+        .then( user => {
+          if(user) {
+            return Promise.reject('The Username you have entered is already in taken. Please try again')
+          }
+        })
+    }),
   check('emailAddress')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Email Address')
     .isLength({ max: 100 })
     .withMessage('Email Address must not be more than 100 characters long')
     .isEmail()
-    .withMessage('Email Address is not a valid email'),
+    .withMessage('Email Address is not a valid email')
+    .custom( value => {
+      return db.Trainer.findOne({ where: {emailAddress: value}})
+        .then( user => {
+          if(user) {
+            return Promise.reject('The Email you have entered is already in use. Please try again')
+          }
+        })
+    }),
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Please provide a value for Password')
