@@ -336,11 +336,13 @@ footer li {
   margin-top: 4px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 footer p {
   margin-top: 80px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .column {
