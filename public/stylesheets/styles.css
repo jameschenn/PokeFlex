@@ -34,6 +34,12 @@ h1 {
   font-size: 2rem;
 }
 
+/* h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 .div-form {
   display: flex;
   flex-direction: column;
@@ -372,6 +378,8 @@ option {
 .deleteBtn{
   border-radius: 10px;
   background-color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
 }
 
 
