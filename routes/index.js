@@ -9,7 +9,7 @@ router.get('/', async function(req, res, next) {
     order: [['id', 'ASC']],
     limit: 9
   })
-  console.log(pokemons)
+  
   if(req.session.auth) {
 
     const userId = req.session.auth.userId

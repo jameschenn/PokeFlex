@@ -8,17 +8,13 @@ block content
                     span(style="font-weight:bold; font-size:20px; text-transform:uppercase")= pokemon.name
                     p= pokemon.description
                     p= pokemon.type
+                    if locals.authenticated
+                        form(action=`/pokemons/${pokemon.id}` method='post' id='form')
+                            select(name= 'catchlistId' class='drop-down')
+                                each catchlist in catchlists
+                                    option(class='formOption' value= catchlist.id)= catchlist.catchstatus
+                            button(type='Submit' class='grow' id='button') Confirm
     div(class="biocontainer")
             div(class="pokemonbio")
                 div(class="bio-content")
-                    span(style="font-size:40px") About
                     p(class="about-content")= pokemon.biology
-
-    if locals.authenticated
-        form(action=`/pokemons/${pokemon.id}` method='post' id='form')
-            select(name= 'catchlistId' class='drop-down')
-                each catchlist in catchlists
-                    option(class='formOption' value= catchlist.id)= catchlist.catchstatus
-            button(type='Submit' class='grow' class='formButton' id='button') Confirm
-        div
-            img(src='/professoroak.png' , alt='some image' class="oak")

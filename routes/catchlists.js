@@ -50,7 +50,7 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
     const trainer = await db.Trainer.findByPk(trainerId)
     const catchlistId = parseInt(req.params.catchlistId, 10)
     const catchlist = await db.Catchlist.findByPk(catchlistId)
-    // console.log('type')
+    
     // const jointable = await db.CatchlistJoinPokemon.findAll(
     //     {
     //     include: {
@@ -67,10 +67,8 @@ router.get('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, res)
         where: {id: catchlistId}
 
     })
-    console.log(catchlist.catchstatus)
         const pokemonList = pokemons[0].Pokemons
-        // console.log('POKEMONS ---->', pokemons[0].id)
-    // console.log('CatchList ---->', pokemon[0].Pokemons.length)
+
     res.render('catchlist', { title: `${catchlist.catchstatus}`, pokemonList, trainer, catchlistId })
 
 }))
@@ -110,7 +108,6 @@ router.post('/:trainerId(\\d+)', csrfProtection, catchlistValidator, asyncHandle
     const { catchlist_name } = req.body;
     const trainerId = parseInt(req.params.trainerId, 10);
     const catchlist = db.Catchlist.build({ catchstatus: catchlist_name, trainerId });
-    console.log('catchlist---------------', catchlist)
     const validationErrors = validationResult(req);
 
     if (validationErrors.isEmpty()) {
@@ -132,7 +129,6 @@ router.post('/:trainerId(\\d+)', csrfProtection, catchlistValidator, asyncHandle
 // router.get('/:id(\\d+)/edit', csrfProtection, asyncHandler(async (req, res, next) => {
 //     if (req.session.auth) {
 //         const trainerId = parseInt(req.params.trainerId, 10);
-//         console.log('hi--------------------', req.params.userid)
 //         // const catchlist = await db.Catchlist.findByPk();
 //         res.render('edit-list', {
 //             title: "Edit Catchlist",
@@ -152,7 +148,6 @@ router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, r
             id: catchlistId,
         }
     });
-    console.log('catchlist ----------', catchlist)
     await catchlist.destroy()
     res.json({ message: 'Success' });
 }))
@@ -161,8 +156,7 @@ router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)', asyncHandler(async (req, r
 router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler(async (req, res) => {
     const catchlistId = parseInt(req.params.catchlistId, 10)
     const pokeId = parseInt(req.params.pokeId, 10)
-    console.log(catchlistId)
-    console.log(pokeId)
+
     // const pokemons = await db.Catchlist.findAll({
     //     include: db.Pokemon,
     //     where: { id: catchlistId }
@@ -173,7 +167,7 @@ router.delete('/:trainerId(\\d+)/:catchlistId(\\d+)/:pokeId(\\d+)', asyncHandler
             pokemonId: pokeId
         }
     })
-    console.log("POKEMON ---------> ", pokemon);
+
     // const pokemonId = pokemon.id
 
     await pokemon.destroy()
