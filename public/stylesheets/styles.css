@@ -34,6 +34,12 @@ h1 {
   font-size: 2rem;
 }
 
+/* h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 .div-form {
   display: flex;
   flex-direction: column;
@@ -330,11 +336,13 @@ footer li {
   margin-top: 4px;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 footer p {
   margin-top: 80px;
   font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .column {
@@ -372,6 +380,8 @@ option {
 .deleteBtn{
   border-radius: 10px;
   background-color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
 }
 
 
