@@ -34,12 +34,6 @@ h1 {
   font-size: 2rem;
 }
 
-/* h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .div-form {
   display: flex;
   flex-direction: column;
@@ -126,10 +120,6 @@ button:hover {
   padding: 5px;
 }
 
-li:not(:last-child) {
-    border-right:solid 1px rgb(211, 0, 0);
-}
-
 .homeButton {
   padding: 5px;
   margin: 10px;
@@ -201,12 +191,6 @@ nav {
   font-family: 'Montserrat', sans-serif;
 
 }
-
-/* .logo {
-  font-weight: bold;
-  font-size: 40px;
-  margin-left: 30px;
-} */
 
 .welcome {
   font-weight: 500;
