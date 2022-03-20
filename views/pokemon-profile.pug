@@ -8,6 +8,12 @@ block content
                     span(style="font-weight:bold; font-size:20px; text-transform:uppercase")= pokemon.name
                     p= pokemon.description
                     p= pokemon.type
+    div(class="biocontainer")
+            div(class="pokemonbio")
+                div(class="bio-content")
+                    span(style="font-size:40px") About
+                    p(class="about-content")= pokemon.biology
+
     if locals.authenticated
         form(action=`/pokemons/${pokemon.id}` method='post' id='form')
             select(name= 'catchlistId' class='drop-down')
