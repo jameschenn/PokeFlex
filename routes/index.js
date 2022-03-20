@@ -6,6 +6,7 @@ const db = require('../db/models')
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   const pokemons = await db.Pokemon.findAll({
+    order: [['id', 'ASC']],
     limit: 9
   })
   console.log(pokemons)
