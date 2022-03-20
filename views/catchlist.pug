@@ -4,7 +4,7 @@ extends layout.pug
 block content
     h2(style="font-weight:bold; font-size:40px; text-transform:uppercase; text-align:center")= title
         each pokemon in pokemonList
-            div(class="card-container" id=`${pokemon.id}`)
+            a(class="card-container" id=`${pokemon.id}` href=`/pokemons/${pokemon.id}`)
                 div(class=`card grow ${pokemon.id}`)
                     img(src=pokemon.image)
                     div(class="card-text")
