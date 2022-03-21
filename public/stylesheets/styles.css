@@ -293,7 +293,7 @@ footer li {
 footer p {
   margin-top: 80px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .column {
@@ -309,6 +309,10 @@ footer p {
 
 .socials {
   margin-left: 11px;
+}
+
+.socials:hover {
+  color: white;
 }
 
 .drop-down  {
