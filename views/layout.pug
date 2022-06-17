@@ -40,6 +40,9 @@ html
         else
           li: a(class="aTag" href="/users/login") My Pokémon
         li: a(class="aTag" href="/pokemons") All Pokémon
+        form(action="/pokemons/" method='post')
+          input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
+          input(type='text' placeholder='Search For Pokémon' name='searchParams' class='div-form-item')
       if locals.authenticated
         div(class="right-head")
           h2(class="welcome") Welcome #{user.username}
