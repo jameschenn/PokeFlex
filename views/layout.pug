@@ -16,6 +16,13 @@ html
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <meta name="description" content="PokéFlex" />
+    <meta name="title" property="og:title" content="PokéFlex" />
+    <meta property="og:type" content="Website" />
+    <meta name="image" property="og:image" content="https://res.cloudinary.com/daeopbcax/image/upload/v1655237526/feather/pokeflex_j1dypn.jpg" />
+    <meta name="description" property="og:description" content="PokéFlex Thumbnail" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Grant Walton Khoi Duong James Chen Dayton Chen" />
     //- add page specific styles by appending to the head
     link(rel="stylesheet" href="/stylesheets/index.css")
     //- add page specific js
@@ -33,6 +40,9 @@ html
         else
           li: a(class="aTag" href="/users/login") My Pokémon
         li: a(class="aTag" href="/pokemons") All Pokémon
+        form(action="/pokemons/" method='post')
+          input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
+          input(type='text' placeholder='Search For Pokémon' name='searchParams' class='div-form-item')
       if locals.authenticated
         div(class="right-head")
           h2(class="welcome") Welcome #{user.username}

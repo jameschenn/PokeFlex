@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs')
 const { check, validationResult } = require('express-validator');
 const session = require('express-session');
 const { userLogin, userRestore, requireAuth, userLogout } = require('../auth')
+const Sequelize = require('sequelize')
 
 
 const asyncHandler = (handler) => {
@@ -24,7 +25,7 @@ router.get('/', asyncHandler(async (req, res) => {
     offset: 30 * (page - 1)
   })
   console.log(pokemon);
-  res.render('pokemon', { title: 'All Pokemons', pokemon })
+  res.render('pokemon', { title: 'All Pokemon', pokemon })
 }))
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
@@ -71,6 +72,23 @@ router.post('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
   res.redirect(`/catchlists/${trainer.id}/${catchlistId}`);
 }))
 
+router.post('/', asyncHandler(async (req, res) => {
+  const { searchParams } = req.body
+  if(searchParams) {
+    const pokemon = await db.Pokemon.findAll({
+      where: {
+        name: {
+          [Sequelize.Op.iLike]: `${searchParams}%`
+        }
+      }
+    })
+    res.render('pokemon', {title:'All Pokémon', pokemon})
+  } else {
+    const pokemon = await db.Pokemon.findAll()
+    res.render('pokemon', {title:'All Pokémon', pokemon})
+  }
+}))
+
 router.delete('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
   const pokemonId = parseInt(req.params.pokemonId, 10)
   const pokemon = await db.Pokemon.findByPk(pokemonId);
@@ -79,11 +97,11 @@ router.delete('/:pokemonId(\\d+)', asyncHandler(async (req, res) => {
   //     where: { id: catchlistId }
 
   // })
-  if(pokemon) {
+  if (pokemon) {
     await pokemon.destory();
-    res.json({message: 'Successfully Deleted'})
-  } else{
-    res.json({message:"Failed to Delete"})
+    res.json({ message: 'Successfully Deleted' })
+  } else {
+    res.json({ message: "Failed to Delete" })
   }
   // const pokemonList = pokemons[0].Pokemons
 
