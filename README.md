@@ -67,11 +67,21 @@ This project is designed by [Grant Walton](https://github.com/Gwantt), [James Ch
 
 2. Pokemon
 * All trainers can view a list of pokemons.
+![pokeflex github2](https://user-images.githubusercontent.com/73676915/176514873-b6835a91-57e2-4595-9027-afb085703b27.PNG)
+
 * If a trainer clicks on a pokemon link, the trainer is redirected to the pokemon's page, and the trainer can see information and reviews/ratings about that pokemon.
+![pokeflex github5](https://user-images.githubusercontent.com/73676915/176514925-3a249f34-b63a-4454-82c3-1ba56eff7097.PNG)
 
 3. Catchlists
 * Logged in trainers has a personal list of pokemons
 * There are 3 separate lists in the catchlist (need to catch, caught, plan to catch)
+* Logged in trainers can add additional, personalized catchlists for more personal needs
 * Logged in trainers can add or remove pokemon to one of the three catchlists 
 * Logged in trainers can change the catch status of the pokemon
+![pokeflex github3](https://user-images.githubusercontent.com/73676915/176515286-6a1a3d9f-b13b-4d6c-86c4-eede68d283e8.PNG)
+![pokeflex github1](https://user-images.githubusercontent.com/73676915/176515313-270ef140-dcaf-4a3e-9933-6ae0aa45d492.PNG)
+
+4. Search
+* All trainers can search Pokemon **by name** using the search bar
+![pokeflex github4](https://user-images.githubusercontent.com/73676915/176515693-03a0ecd8-8c2d-4e24-8169-dad0fe7ab33c.PNG)
 
