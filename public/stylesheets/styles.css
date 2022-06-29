@@ -40,7 +40,7 @@ h1 {
   justify-content: center;
   align-items: center;
   background-color: rgb(68, 170, 165);
-  margin: 20px 620px;
+  margin: 50px 1rem;
   padding: 50px;
   /* box-shadow: 10px 5px 4px rgb(148, 142, 142); */
   border-radius: 10px;
@@ -117,6 +117,7 @@ button:hover {
   text-decoration: none;
   font-size: 20px;
   left: 30%;
+  margin-top: 20px;
   padding: 5px;
 }
 
@@ -220,6 +221,8 @@ nav {
   border: 20px;
   padding: 20px;
   float: left;
+  margin-left: 50px;
+
 
   border-radius: 18px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
@@ -361,7 +364,7 @@ option {
 .pokedex{
   position:absolute;
   top:10px;
-  right: 10px;
+  right: 0px;
   margin-top: 80px;
 }
 
@@ -394,4 +397,10 @@ option {
   font-weight: lighter;
   width: 1060px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.searchbar {
+  margin-left: 120px;
+  width: 450px;
+  height: 40px;
 }
