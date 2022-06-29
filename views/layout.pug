@@ -42,7 +42,7 @@ html
         li: a(class="aTag" href="/pokemons") All Pokémon
         form(action="/pokemons/" method='post')
           input(class="div-form-item" type="hidden" name="_csrf" value=csrfToken)
-          input(type='text' placeholder='Search For Pokémon' name='searchParams' class='div-form-item')
+          input(type='text' placeholder='Search For Pokémon' name='searchParams' class='searchbar')
       if locals.authenticated
         div(class="right-head")
           h2(class="welcome") Welcome #{user.username}
