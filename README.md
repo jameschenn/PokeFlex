@@ -3,7 +3,7 @@ Welcome to the PokéFlex wiki page! PokéFlex, a [Goodreads](https://www.goodrea
 
 ## Live Site Link
 
-[PokéFlex](https://poke-flex.herokuapp.com/)
+[PokéFlex](https://pokeflex.onrender.com/)
 
 ## Link to Wiki Docs
 
@@ -20,17 +20,18 @@ Welcome to the PokéFlex wiki page! PokéFlex, a [Goodreads](https://www.goodrea
 [User Stories](https://github.com/jameschenn/PokeFlex/wiki/User-Stories)
 
 ## Project Team
-This project is designed by [Grant Walton](https://github.com/Gwantt), [James Chen](https://github.com/jameschenn), [Khoi Duong](https://github.com/kdngaa), and [Dayton Chen](https://github.com/spursforever)
+This project is designed by [James Chen](https://github.com/jameschenn), [Grant Walton](https://github.com/Gwantt), [Khoi Duong](https://github.com/kdngaa), and [Dayton Chen](https://github.com/spursforever)
 
 ## Techonology Used
-<img src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
-<img src="https://img.icons8.com/fluency/48/000000/pug.png"/>
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" height=40 />
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=40/>
-<img src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png" height=35/>
-<img src="https://img.icons8.com/color/48/000000/css3.png"/>
-<img src="https://img.icons8.com/color/48/000000/nodejs.png"/>
-<img src="https://img.icons8.com/nolan/64/git.png" height=50/>
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Pug](https://img.shields.io/badge/Pug-FFF?style=for-the-badge&logo=pug&logoColor=A86454)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 ## Getting Started
 1. Clone this repistory
